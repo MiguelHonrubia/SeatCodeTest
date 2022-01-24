@@ -4,13 +4,13 @@ import { buildRequestFiltersAndSort } from "../../core/utils/request-params-buil
 import Api from "./api";
 
 const requestOptions = {
-  baseUrl: "http://localhost:3000/",
+  baseUrl: "http://localhost:3004",
   defaultOptions: {},
 };
 
 const api = new Api(requestOptions);
 
-export const getCars = (filters: any, sort?: sortType[]) => {
+export const getCars = (filters?: any, sort?: sortType[]) => {
   const q = buildRequestFiltersAndSort(filters, sort);
   return api.get(`/cars?${q}`);
 };

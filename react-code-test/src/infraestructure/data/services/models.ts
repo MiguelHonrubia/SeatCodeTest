@@ -4,7 +4,7 @@ import { buildRequestFiltersAndSort } from "../../core/utils/request-params-buil
 import Api from "./api";
 
 const requestOptions = {
-  baseUrl: "http://localhost:3000",
+  baseUrl: "http://localhost:3004",
   defaultOptions: {},
 };
 
