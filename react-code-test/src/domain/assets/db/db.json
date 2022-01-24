@@ -23,7 +23,7 @@
       "doors": 5
     },
     {
-      "id": 2,
+      "id": 3,
       "registration": "9012GHI",
       "brandName": "Volkwagen",
       "brandId": 2,
@@ -35,8 +35,14 @@
     }
   ],
   "brands": [
-    { "id": 1, "name": "Seat" },
-    { "id": 2, "name": "Volkwagen" }
+    {
+      "id": 1,
+      "name": "Seat"
+    },
+    {
+      "id": 2,
+      "name": "Volkwagen"
+    }
   ],
   "models": [
     {
