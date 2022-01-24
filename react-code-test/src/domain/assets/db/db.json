@@ -1,24 +1,58 @@
 {
-  "posts": [
+  "cars": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "registration": "1234ABC",
+      "brandName": "Seat",
+      "brandId": 1,
+      "modelName": "Ibiza",
+      "modelId": 1,
+      "color": "#FFFFFF",
+      "registrationDate": "2020-11-03",
+      "doors": 5
     },
     {
       "id": 2,
-      "title": "json-server",
-      "author": "typicode"
+      "registration": "5678DEF",
+      "brandName": "Seat",
+      "brandId": 1,
+      "modelName": "Arona",
+      "modelId": 2,
+      "color": "#FFFFFF",
+      "registrationDate": "2019-07-05",
+      "doors": 5
+    },
+    {
+      "id": 2,
+      "registration": "9012GHI",
+      "brandName": "Volkwagen",
+      "brandId": 2,
+      "modelName": "Golf",
+      "modelId": 3,
+      "color": "#FFFFFF",
+      "registrationDate": "2017-03-21",
+      "doors": 3
     }
   ],
-  "comments": [
+  "brands": [
+    { "id": 1, "name": "Seat" },
+    { "id": 2, "name": "Volkwagen" }
+  ],
+  "models": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "brandId": 1,
+      "name": "Ibiza"
+    },
+    {
+      "id": 2,
+      "brandId": 1,
+      "name": "Arona"
+    },
+    {
+      "id": 3,
+      "brandId": 2,
+      "name": "Golf"
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
