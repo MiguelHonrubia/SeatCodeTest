@@ -32,6 +32,17 @@
       "color": "#FFFFFF",
       "registrationDate": "2017-03-21",
       "doors": 3
+    },
+    {
+      "id": 999,
+      "registration": "9999XYZ",
+      "brandName": "Audi",
+      "brandId": 3,
+      "modelName": "e-tron GT",
+      "modelId": 4,
+      "color": "#FFFFFF",
+      "registrationDate": "2022-07-06",
+      "doors": 3
     }
   ],
   "brands": [

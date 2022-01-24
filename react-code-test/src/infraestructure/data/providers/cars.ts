@@ -10,7 +10,7 @@ import { sortType } from "../../core/models/Sort";
 import { getBrandsProvider } from "./brands";
 import { getModelsProvider } from "./models";
 
-export const getCarsProvider = (filters: any, sort?: sortType[]) =>
+export const getCarsProvider = (filters?: any, sort?: sortType[]) =>
   getCars(filters, sort);
 
 export const postCarProvider = (body: any) => postCar(body);
