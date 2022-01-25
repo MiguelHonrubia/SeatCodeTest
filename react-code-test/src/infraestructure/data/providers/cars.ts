@@ -14,7 +14,7 @@ import {
   mapCarTypeFrontToApi,
 } from "../../core/maps/cars";
 
-export const getCarsProvider = async (filters?: any, sort?: sortType[]) =>
+export const getCarsProvider = async (filters?: any, sort?: sortType) =>
   mapCarsTypeApiToFront(await getCars(filters, sort));
 
 export const postCarProvider = (body: any) =>

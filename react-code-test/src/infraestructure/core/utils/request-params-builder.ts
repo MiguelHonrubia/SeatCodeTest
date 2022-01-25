@@ -22,18 +22,13 @@ export const buildRequestSort = (sort: any): URLSearchParams => {
   const urlParams = new URLSearchParams();
 
   let paramsString = "";
+  paramsString = `${sort.field}`;
 
-  Object.keys(sort).forEach((elem) => {
-    if (paramsString !== "") {
-      paramsString = `${paramsString},${elem} ${sort[elem]}`;
-    } else {
-      paramsString = `${elem} ${sort[elem]}`;
-    }
-  });
+  urlParams.append("_sort", paramsString);
 
-  if (Object.keys(sort).length > 0) {
-    urlParams.append("_sort", paramsString);
-  }
+  paramsString = `${sort.value}`;
+
+  urlParams.append("_order", paramsString);
 
   return urlParams;
 };
@@ -58,8 +53,6 @@ function combineSearchParams(searchParams1, searchParams2) {
 
   if (searchParams1) array.push(searchParams1);
   if (searchParams2) array.push(searchParams2);
-
-  // Display the key/value pairs
 
   array.forEach((params) => {
     for (const pair of params.entries()) {

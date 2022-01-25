@@ -40,7 +40,7 @@ export const CarList: React.FC = () => {
   };
 
   const [filters, setFilters] = React.useState({});
-  const [sort, setSort] = React.useState<sortType[]>([]);
+  const [sort, setSort] = React.useState<sortType>(null);
 
   const load = async (filtersAux, sortAux) => {
     try {
@@ -136,6 +136,11 @@ export const CarList: React.FC = () => {
   CAR_LIST_KEYS[0].template = deleteCustomTemplate;
   CAR_LIST_KEYS[1].template = editCustomTemplate;
 
+  const updateData = async (sortAux: sortType) => {
+    console.log("entro a ordenar", sortAux);
+    await load(filters, sortAux);
+  };
+
   return (
     <>
       <Dialog
@@ -170,6 +175,7 @@ export const CarList: React.FC = () => {
             headers={CAR_LIST_KEYS}
             dataSource={cars}
             maxHeight={300}
+            updateData={updateData}
           ></DataTable>
         </div>
       </div>

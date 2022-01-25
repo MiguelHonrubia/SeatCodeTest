@@ -1,5 +1,9 @@
 import * as React from "react";
 import { DatatableField } from "../../../infraestructure/core/models/Datatable";
+import { sortType } from "../../../infraestructure/core/models/Sort";
+import { AscArrowIcon, DescArrowIcon } from "../../assets/icons/SortIcons";
+import { IconButton } from "../button/IconButton";
+import { Tooltip } from "../tooltip/Tooltip";
 import {
   StyledCellText,
   StyledTableContainer,
@@ -12,7 +16,24 @@ export const DataTable: React.FC<{
   headers: DatatableField[];
   dataSource: any[];
   maxHeight?: number;
-}> = ({ headers, dataSource, maxHeight }) => {
+  updateData?: (sort: sortType) => void;
+}> = ({ headers, dataSource, maxHeight, updateData }) => {
+  const [sort, setSort] = React.useState<sortType>(null);
+
+  const sortColumn = async (key) => {
+    if (sort && sort.field === key && sort.value === "asc") {
+      setSort({ field: key, value: "desc" });
+    } else if (sort && sort.field === key && sort.value === "desc") {
+      setSort(null);
+    } else {
+      setSort({ field: key, value: "asc" });
+    }
+  };
+
+  React.useEffect(() => {
+    updateData(sort);
+  }, [sort]);
+
   return (
     <StyledTableContainer
       maxHeight={maxHeight ? `${maxHeight}px` : "auto"}
@@ -22,8 +43,24 @@ export const DataTable: React.FC<{
         <thead>
           <tr>
             {headers.map(({ key, text, visible, template, width }, index) => (
-              <StyledTH key={index} width={width}>
-                {text}
+              <StyledTH
+                key={index}
+                width={width}
+                onClick={() => sortColumn(key)}
+              >
+                <div style={{ display: "flex", cursor: "pointer" }}>
+                  {text}
+                  {sort && sort.field === key && sort.value === "asc" && (
+                    <Tooltip title={"Orden ascendente"}>
+                      <AscArrowIcon />
+                    </Tooltip>
+                  )}
+                  {sort && sort.field === key && sort.value === "desc" && (
+                    <Tooltip title={"Orden descendente"}>
+                      <DescArrowIcon />
+                    </Tooltip>
+                  )}
+                </div>
               </StyledTH>
             ))}
           </tr>
