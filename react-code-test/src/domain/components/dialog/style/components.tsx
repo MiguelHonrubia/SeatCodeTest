@@ -36,7 +36,7 @@ export const StyledModalContent = styled.div<themeProps>`
 export const StyledModalHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 2px 16px;
+  padding: 12px 16px;
   background-color: #5cb85c;
   color: white;
 `;
@@ -44,11 +44,14 @@ export const StyledModalHeader = styled.div`
 export const StyledModalFooter = styled.div`
   display: flex;
   justify-content: right;
-  padding: 2px 16px;
-  background-color: #5cb85c;
+  padding: 16px 16px;
+
+  background-color: #4f565e;
   color: white;
+  border-top: 1px solid #474f58;
 `;
 
 export const StyledModalBody = styled.div`
-  padding: 2px 16px;
+  padding: 20px 16px;
+  background-color: #424a52;
 `;

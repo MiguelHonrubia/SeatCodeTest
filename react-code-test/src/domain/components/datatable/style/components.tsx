@@ -8,6 +8,10 @@ interface colorThemeProps {
   color: string;
 }
 
+interface sizeProps {
+  width?: number;
+}
+
 export const StyledLink = styled.span`
   color: white;
   font-weight: 500;
@@ -50,10 +54,11 @@ export const StyledDataTable = styled.table`
     rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 `;
 
-export const StyledTH = styled.th`
+export const StyledTH = styled.th<sizeProps>`
   padding: 15px 15px 15px 10px;
   border: 1px solid #373d43;
   text-align: left;
+  width: ${({ width }) => (width ? `${width}px` : "")};
 `;
 
 export const StyledTD = styled.td`
@@ -68,4 +73,8 @@ export const StyledColorBox = styled.div<colorThemeProps>`
 
 export const StyledColorContainer = styled.div`
   width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

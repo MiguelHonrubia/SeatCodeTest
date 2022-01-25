@@ -1,5 +1,5 @@
 export type ActionButtonType = {
-  tooltipText: string;
+  tooltipText?: string;
   onClick: (id?: string) => void;
   iconComponent: JSX.Element;
 };

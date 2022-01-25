@@ -11,7 +11,8 @@ export const MainSubtitleBox: React.FC<{
   title: string;
   actionButtons?: ActionButtonType[];
   closeButton?: boolean;
-}> = ({ title, actionButtons, closeButton }) => {
+  onClose?: () => void;
+}> = ({ title, actionButtons, closeButton, onClose }) => {
   return (
     <StyledSubtitleBox>
       <div style={{ display: "flex", width: "100%" }}>
@@ -38,7 +39,7 @@ export const MainSubtitleBox: React.FC<{
         {closeButton && (
           <div style={{ position: "absolute", right: 0 }}>
             <Tooltip title={"Cerrar"}>
-              <IconButton onClick={() => console.log("entro")}>
+              <IconButton onClick={onClose}>
                 <CloseIcon />
               </IconButton>
             </Tooltip>

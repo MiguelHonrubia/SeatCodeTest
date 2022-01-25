@@ -2,6 +2,7 @@ import * as React from "react";
 import { ActionButtonType } from "../../../infraestructure/core/models/ActionButtons";
 import { CloseIcon } from "../../assets/icons/NavegationIcons";
 import { IconButton } from "../button/IconButton";
+import { Headline6 } from "../font/Title";
 import { Tooltip } from "../tooltip/Tooltip";
 import {
   StyledModal,
@@ -31,7 +32,7 @@ export const Dialog: React.FC<{
         <StyledModal>
           <StyledModalContent size={size}>
             <StyledModalHeader>
-              <div>{title}</div>
+              <Headline6>{title}</Headline6>
               <Tooltip title="Cerrar">
                 <IconButton onClick={onClose}>
                   <CloseIcon></CloseIcon>
@@ -45,11 +46,14 @@ export const Dialog: React.FC<{
                 {actionButtons.map(
                   ({ tooltipText, onClick, iconComponent }, index) => {
                     return (
-                      <Tooltip key={index} title={tooltipText}>
+                      <div
+                        key={index}
+                        style={{ marginRight: 10, marginLeft: 10 }}
+                      >
                         <IconButton onClick={() => onClick()}>
                           {iconComponent}
                         </IconButton>
-                      </Tooltip>
+                      </div>
                     );
                   }
                 )}

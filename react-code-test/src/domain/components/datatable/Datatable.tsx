@@ -21,8 +21,10 @@ export const DataTable: React.FC<{
       <StyledDataTable>
         <thead>
           <tr>
-            {headers.map(({ key, text, visible, template }, index) => (
-              <StyledTH key={index}>{text}</StyledTH>
+            {headers.map(({ key, text, visible, template, width }, index) => (
+              <StyledTH key={index} width={width}>
+                {text}
+              </StyledTH>
             ))}
           </tr>
         </thead>
@@ -36,7 +38,7 @@ export const DataTable: React.FC<{
                     return (
                       <StyledTD key={indexChild}>
                         {Temp ? (
-                          <div style={{ marginLeft: 10 }}>
+                          <div>
                             <Temp {...row} />
                           </div>
                         ) : type === "date" ? (
@@ -45,7 +47,7 @@ export const DataTable: React.FC<{
                           </StyledCellText>
                         ) : (
                           <StyledCellText style={{ marginLeft: 10 }}>
-                            {row[key]}
+                            {`${row[key]}`.toUpperCase()}
                           </StyledCellText>
                         )}
                       </StyledTD>

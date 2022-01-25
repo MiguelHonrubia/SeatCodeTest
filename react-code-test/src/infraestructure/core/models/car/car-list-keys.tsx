@@ -1,7 +1,18 @@
 import { ColorTemplate } from "../../../../domain/components/datatable/templates/ColorTemplate";
+import { DeleteTemplate } from "../../../../domain/components/datatable/templates/DeleteTemplate";
 import { DatatableField } from "../Datatable";
 
 export const CAR_LIST_KEYS: DatatableField[] = [
+  {
+    key: "delete",
+    text: "",
+    width: 20,
+  },
+  {
+    key: "edit",
+    text: "",
+    width: 20,
+  },
   {
     key: "registration",
     text: "Matrícula",
@@ -15,16 +26,18 @@ export const CAR_LIST_KEYS: DatatableField[] = [
     text: "Modelo",
   },
   {
-    key: "color",
-    text: "Color",
-    template: ColorTemplate,
+    key: "registrationDate",
+    text: "Fecha matriculación",
   },
   {
     key: "doors",
-    text: "Puertas",
+    text: "Nº Puertas",
+    width: 100,
   },
   {
-    key: "registrationDate",
-    text: "Fecha matriculación",
+    key: "color",
+    text: "Color",
+    template: ColorTemplate,
+    width: 40,
   },
 ];

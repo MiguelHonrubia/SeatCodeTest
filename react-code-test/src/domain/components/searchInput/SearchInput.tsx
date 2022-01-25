@@ -5,21 +5,25 @@ import {
   StyledSearchForm,
 } from "./style/components";
 
-export const SearchInput: React.FC<{}> = ({}) => {
+export const SearchInput: React.FC<{
+  handleSubmit: (text: string) => void;
+}> = ({ handleSubmit }) => {
+  const [searchText, setSearchText] = React.useState("");
+
   return (
     <>
       <StyledSearchForm
-        onSubmit={(values) => {
-          console.log("values", values);
+        onSubmit={(event) => {
+          handleSubmit(searchText);
+          event.preventDefault();
         }}
       >
         <StyledSearchInput
           type="text"
-          id="name"
-          name="name"
-          required
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
         ></StyledSearchInput>
-        <StyledSearchSubmit type="submit" value="Submit"></StyledSearchSubmit>
+        <StyledSearchSubmit type="submit" value="Buscar"></StyledSearchSubmit>
       </StyledSearchForm>
     </>
   );

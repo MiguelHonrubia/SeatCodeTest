@@ -16,7 +16,7 @@ export const getCars = (filters?: any, sort?: sortType[]) => {
 };
 
 export const postCar = (body: any) => api.post("/cars", { body });
-export const putCar = (body: any) => api.put("/cars", { body });
+export const putCar = (body: any) => api.put(`/cars/${body.id}`, { body });
 export const patchCar = (id: number, body: any) =>
   api.patch(`/cars/${id}`, { body });
 export const deleteCar = (id: number) => api.delete(`/cars/${id}`);

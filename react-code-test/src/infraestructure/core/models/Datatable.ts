@@ -6,4 +6,6 @@ export type DatatableField = {
   type?: "string" | "date" | "number";
   template?: React.FC<any>;
   visible?: boolean | true;
+  width?: number;
+  actionFunction?: any;
 };
