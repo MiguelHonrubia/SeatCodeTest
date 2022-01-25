@@ -4,9 +4,9 @@
       "id": 1,
       "registration": "1234ABC",
       "brandName": "seat",
-      "brandId": 1,
+      "brandId": 2,
       "modelName": "ibiza",
-      "modelId": 1,
+      "modelId": 5,
       "color": "#97117a",
       "registrationDate": "2021-11-03",
       "doors": 5
@@ -14,10 +14,10 @@
     {
       "id": 2,
       "registration": "5678def",
-      "brandName": "seat",
-      "brandId": 1,
-      "modelName": "arona",
-      "modelId": 2,
+      "brandName": "Škoda",
+      "brandId": 5,
+      "modelName": "Kamiq",
+      "modelId": 10,
       "color": "#52dd36",
       "registrationDate": "2019-07-05",
       "doors": 5
@@ -25,13 +25,35 @@
     {
       "id": 3,
       "registration": "9012ghi",
-      "brandName": "volkwagen",
+      "brandName": "volkswagen",
       "brandId": 2,
       "modelName": "golf",
       "modelId": 3,
       "color": "#172fe6",
       "registrationDate": "2017-03-21",
       "doors": 3
+    },
+    {
+      "registration": "1256ADH",
+      "registrationDate": "2021-09-22",
+      "brandId": 9,
+      "modelId": 7,
+      "color": "#b68a11",
+      "doors": 3,
+      "brandName": "Audi",
+      "modelName": "A1",
+      "id": 4
+    },
+    {
+      "registration": "4344HLK",
+      "registrationDate": "2019-03-21",
+      "brandId": 1,
+      "modelId": 2,
+      "color": "#097ed7",
+      "doors": 5,
+      "brandName": "Seat",
+      "modelName": "Arona",
+      "id": 5
     }
   ],
   "brands": [
@@ -41,7 +63,35 @@
     },
     {
       "id": 2,
-      "name": "Volkwagen"
+      "name": "Volkswagen"
+    },
+    {
+      "id": 3,
+      "name": "Cupra"
+    },
+    {
+      "id": 4,
+      "name": "Porsche"
+    },
+    {
+      "id": 5,
+      "name": "Škoda"
+    },
+    {
+      "id": 6,
+      "name": "Bentley"
+    },
+    {
+      "id": 7,
+      "name": "Bugatti"
+    },
+    {
+      "id": 8,
+      "name": "Laborghini"
+    },
+    {
+      "id": 9,
+      "name": "Audi"
     }
   ],
   "models": [
@@ -59,6 +109,61 @@
       "id": 3,
       "brandId": 2,
       "name": "Golf"
+    },
+    {
+      "id": 4,
+      "brandId": 1,
+      "name": "Ateca"
+    },
+    {
+      "id": 5,
+      "brandId": 2,
+      "name": "Polo"
+    },
+    {
+      "id": 6,
+      "brandId": 2,
+      "name": "T-Cross"
+    },
+    {
+      "id": 7,
+      "brandId": 9,
+      "name": "A1"
+    },
+    {
+      "id": 8,
+      "brandId": 9,
+      "name": "e-tron GT"
+    },
+    {
+      "id": 9,
+      "brandId": 5,
+      "name": "Karoq"
+    },
+    {
+      "id": 10,
+      "brandId": 5,
+      "name": "Kamiq"
+    },
+    {
+      "id": 11,
+      "brandId": 6,
+      "name": "CONTINENTAL GT MULLINER"
+    },
+    {
+      "id": 12,
+      "brandId": 6,
+      "name": "BENTAYGA HYBRID"
+    },
+    {
+      "id": 13,
+      "brandId": 4,
+      "name": "Cayenne"
+    },
+    {
+      "id": 14,
+      "brandId": 4,
+      "name": "Macan"
     }
   ]
 }

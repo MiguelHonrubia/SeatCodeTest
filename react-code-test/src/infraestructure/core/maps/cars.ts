@@ -14,10 +14,12 @@ export const mapCarsTypeApiToFront = (cars?: any[]): any[] => {
   return mappedCars;
 };
 
-export const mapCarTypeFrontToApi = (car: CarFrontType) => {
+export const mapCarTypeFrontToApi = (car: CarFrontType, dropDownValues) => {
   return {
     ...car,
     registrationDate: formatDateToApi(car.registrationDate),
+    brandName: dropDownValues["brands"].find((x) => x.id === car.brandId)?.name,
+    modelName: dropDownValues["models"].find((x) => x.id === car.modelId)?.name,
   };
 };
 

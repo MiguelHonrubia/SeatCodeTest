@@ -17,9 +17,12 @@ import {
 export const getCarsProvider = async (filters?: any, sort?: sortType) =>
   mapCarsTypeApiToFront(await getCars(filters, sort));
 
-export const postCarProvider = (body: any) =>
-  postCar(mapCarTypeFrontToApi(body));
-export const putCarProvider = (body: any) => putCar(mapCarTypeFrontToApi(body));
+export const postCarProvider = (body: any, dropDownValues) =>
+  postCar(mapCarTypeFrontToApi(body, dropDownValues));
+
+export const putCarProvider = (body: any, dropDownValues) =>
+  putCar(mapCarTypeFrontToApi(body, dropDownValues));
+
 export const patchCarProvider = (body: any) => {
   const carId = body.id;
   delete body.id;

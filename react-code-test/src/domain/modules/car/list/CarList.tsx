@@ -30,7 +30,6 @@ export const CarList: React.FC = () => {
     try {
       const response = await fetchCarDropDownValues();
       setDropDownValues(response);
-      console.log(response);
     } catch {
       showSnackbar({
         type: "error",
@@ -90,14 +89,16 @@ export const CarList: React.FC = () => {
 
   const onSubmitCar = async (values, editCar) => {
     try {
-      console.log("values", values);
-      editCar ? await putCarProvider(values) : await postCarProvider(values);
+      editCar
+        ? await putCarProvider(values, dropDownValues)
+        : await postCarProvider(values, dropDownValues);
       showSnackbar({
         type: "success",
         message: editCar
           ? "Vehiculo modificado correctamente"
           : "Vehiculo añadido correctamente",
       });
+      load(filters, sort);
     } catch {
       showSnackbar({
         type: "error",
@@ -137,7 +138,6 @@ export const CarList: React.FC = () => {
   CAR_LIST_KEYS[1].template = editCustomTemplate;
 
   const updateData = async (sortAux: sortType) => {
-    console.log("entro a ordenar", sortAux);
     await load(filters, sortAux);
   };
 

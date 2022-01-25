@@ -4,6 +4,7 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import {
   deleteCarProvider,
+  fetchCarDropDownValues,
   getCarsProvider,
   patchCarProvider,
   postCarProvider,
@@ -62,6 +63,7 @@ test("render cars list", async () => {
 
 test("render added car", async () => {
   const cars = await getCarsProvider();
+  const dropDownValues = await fetchCarDropDownValues();
 
   render(<DataTable headers={CAR_LIST_KEYS} dataSource={cars}></DataTable>);
 
@@ -77,7 +79,7 @@ test("render added car", async () => {
     doors: 3,
   };
 
-  await postCarProvider(car);
+  await postCarProvider(car, dropDownValues);
 
   const carRegistration = screen.getByText("9999XYZ");
   const carBrand = screen.getByText("Audi");
@@ -92,6 +94,7 @@ test("render added car", async () => {
 
 test("not render removed car", async () => {
   const cars = await getCarsProvider();
+  const dropDownValues = await fetchCarDropDownValues();
 
   render(<DataTable headers={CAR_LIST_KEYS} dataSource={cars}></DataTable>);
 
@@ -107,7 +110,7 @@ test("not render removed car", async () => {
     doors: 3,
   };
 
-  await postCarProvider(car);
+  await postCarProvider(car, dropDownValues);
 
   expect(screen.getByText("9999XYZ")).toBeInTheDocument();
   expect(screen.getByText("Audi")).toBeInTheDocument();
@@ -124,6 +127,7 @@ test("not render removed car", async () => {
 
 test("render updated car", async () => {
   const cars = await getCarsProvider();
+  const dropDownValues = await fetchCarDropDownValues();
 
   render(<DataTable headers={CAR_LIST_KEYS} dataSource={cars}></DataTable>);
 
@@ -139,7 +143,7 @@ test("render updated car", async () => {
     doors: 3,
   };
 
-  await postCarProvider(car);
+  await postCarProvider(car, dropDownValues);
 
   expect(screen.getByText("9999XYZ")).toBeInTheDocument();
   expect(screen.getByText("Audi")).toBeInTheDocument();
@@ -158,7 +162,7 @@ test("render updated car", async () => {
     doors: 3,
   };
 
-  await putCarProvider(car2);
+  await putCarProvider(car2, dropDownValues);
 
   expect(screen.getByText("8888XYZ")).toBeInTheDocument();
   expect(screen.getByText("Audi2")).toBeInTheDocument();
@@ -168,6 +172,7 @@ test("render updated car", async () => {
 
 test("render updated car with patch", async () => {
   const cars = await getCarsProvider();
+  const dropDownValues = await fetchCarDropDownValues();
 
   render(<DataTable headers={CAR_LIST_KEYS} dataSource={cars}></DataTable>);
 
@@ -183,7 +188,7 @@ test("render updated car with patch", async () => {
     doors: 3,
   };
 
-  await postCarProvider(car);
+  await postCarProvider(car, dropDownValues);
 
   expect(screen.getByText("9999XYZ")).toBeInTheDocument();
   expect(screen.getByText("Audi")).toBeInTheDocument();
