@@ -2,12 +2,12 @@ import * as React from "react";
 
 export const IconButton: React.FC<{
   onClick: () => void;
-  style?: any;
-  size?: "small" | "medium" | "large";
-  color?: string;
-}> = ({ onClick, style, size, color, children }) => {
+}> = ({ onClick, children }) => {
   return (
-    <div style={style} onClick={() => onClick()}>
+    <div
+      style={{ display: "flex", alignItems: "center" }}
+      onClick={() => onClick()}
+    >
       {children}
     </div>
   );

@@ -23,11 +23,7 @@ export const MainTitleBox: React.FC<{
               ({ tooltipText, onClick, iconComponent }, index) => {
                 return (
                   <Tooltip key={index} title={tooltipText}>
-                    <IconButton
-                      size="small"
-                      color="primary"
-                      onClick={() => onClick()}
-                    >
+                    <IconButton onClick={() => onClick()}>
                       {iconComponent}
                     </IconButton>
                   </Tooltip>

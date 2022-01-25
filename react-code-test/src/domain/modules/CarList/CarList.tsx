@@ -1,6 +1,7 @@
 import * as React from "react";
 import { ActionButtonType } from "../../../infraestructure/core/models/ActionButtons";
 import { CAR_LIST_KEYS } from "../../../infraestructure/core/models/car/car-list-keys";
+import { useSnackbarValue } from "../../../infraestructure/data/contexts/snackbar";
 import { getCarsProvider } from "../../../infraestructure/data/providers/cars";
 import { AddIcon } from "../../assets/icons/ActionIcons";
 import { DataTable } from "../../components/datatable/Datatable";
@@ -10,10 +11,17 @@ import { MainTitleBox } from "../../components/headerBox/MainTitleBox";
 export const CarList: React.FC = () => {
   const [cars, setCars] = React.useState([]);
   const [showDialog, setShowDialog] = React.useState(false);
+  const { showSnackbar } = useSnackbarValue();
 
   const load = async () => {
-    const response = await getCarsProvider();
-    setCars(response);
+    try {
+      const response = await getCarsProvider();
+      setCars(response);
+      showSnackbar({ type: "info", message: "Datos cargados correctamente" });
+      console.log("Estoy aqui?");
+    } catch {
+      showSnackbar({ type: "error", message: "Ha ocurrido un error" });
+    }
   };
 
   React.useEffect(() => {

@@ -26,11 +26,7 @@ export const MainSubtitleBox: React.FC<{
               ({ tooltipText, onClick, iconComponent }, index) => {
                 return (
                   <Tooltip key={index} title={tooltipText}>
-                    <IconButton
-                      size="small"
-                      color="primary"
-                      onClick={() => onClick()}
-                    >
+                    <IconButton onClick={() => onClick()}>
                       {iconComponent}
                     </IconButton>
                   </Tooltip>
@@ -42,11 +38,7 @@ export const MainSubtitleBox: React.FC<{
         {closeButton && (
           <div style={{ position: "absolute", right: 0 }}>
             <Tooltip title={"Cerrar"}>
-              <IconButton
-                size="small"
-                color="primary"
-                onClick={() => console.log("entro")}
-              >
+              <IconButton onClick={() => console.log("entro")}>
                 <CloseIcon />
               </IconButton>
             </Tooltip>
