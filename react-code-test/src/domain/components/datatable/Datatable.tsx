@@ -6,7 +6,7 @@ import {
   StyledDataTable,
   StyledTH,
   StyledTD,
-} from "./style";
+} from "./style/components";
 
 export const DataTable: React.FC<{
   headers: DatatableField[];
