@@ -1,4 +1,5 @@
 import * as React from "react";
+import { formatDateToApi } from "../../../../infraestructure/core/maps/cars";
 import { ActionButtonType } from "../../../../infraestructure/core/models/ActionButtons";
 import { CAR_LIST_KEYS } from "../../../../infraestructure/core/models/car/car-list-keys";
 import { sortType } from "../../../../infraestructure/core/models/Sort";
@@ -25,6 +26,8 @@ export const CarList: React.FC = () => {
   const [showDialog, setShowDialog] = React.useState(false);
   const { showSnackbar } = useSnackbarValue();
   const [dropDownValues, setDropDownValues] = React.useState({});
+  const [filters, setFilters] = React.useState(null);
+  const [sort, setSort] = React.useState<sortType>(null);
 
   const loadDropDownValues = async () => {
     try {
@@ -37,9 +40,6 @@ export const CarList: React.FC = () => {
       });
     }
   };
-
-  const [filters, setFilters] = React.useState({});
-  const [sort, setSort] = React.useState<sortType>(null);
 
   const load = async (filtersAux, sortAux) => {
     try {
@@ -67,11 +67,44 @@ export const CarList: React.FC = () => {
   ];
 
   const handleSubmitSearch = async (text: string) => {
-    const obj = {
-      brandName: text,
-    };
-    setFilters(obj);
-    await load(obj, sort);
+    if (text) {
+      const arrayAux = [];
+      setFilters(text);
+
+      const obj = {
+        brandName: text.toLowerCase(),
+        registration: text.toLowerCase(),
+        registrationDate: formatDateToApi(text),
+        modelName: text.toLowerCase(),
+        doors: Number(text),
+      };
+
+      const requestList = [];
+
+      Object.keys(obj).forEach((key) => {
+        const objAux = {};
+        objAux[key] = obj[key];
+
+        requestList.push(getCarsProvider(objAux, sort));
+      });
+
+      const response = await Promise.all(requestList);
+
+      response.forEach((result) => {
+        if (result.length > 0) {
+          result.forEach((element) => {
+            if (!arrayAux.some((x) => x.id === element.id)) {
+              arrayAux.push(element);
+            }
+          });
+        }
+      });
+
+      setCars(arrayAux);
+    } else {
+      setFilters(null);
+      await load(null, sort);
+    }
   };
 
   const onDeleteCar = async (id: number) => {
@@ -138,7 +171,14 @@ export const CarList: React.FC = () => {
   CAR_LIST_KEYS[1].template = editCustomTemplate;
 
   const updateData = async (sortAux: sortType) => {
-    await load(filters, sortAux);
+    setSort(sortAux);
+
+    if (filters) {
+      console.log("aqui?");
+      await handleSubmitSearch(filters);
+    } else {
+      await load(filters, sortAux);
+    }
   };
 
   return (

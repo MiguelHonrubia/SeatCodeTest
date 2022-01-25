@@ -3,9 +3,9 @@
     {
       "id": 1,
       "registration": "1234ABC",
-      "brandName": "seat",
+      "brandName": "volkswagen",
       "brandId": 2,
-      "modelName": "ibiza",
+      "modelName": "polo",
       "modelId": 5,
       "color": "#97117a",
       "registrationDate": "2021-11-03",
@@ -14,9 +14,9 @@
     {
       "id": 2,
       "registration": "5678def",
-      "brandName": "Škoda",
+      "brandName": "skoda",
       "brandId": 5,
-      "modelName": "Kamiq",
+      "modelName": "kamiq",
       "modelId": 10,
       "color": "#52dd36",
       "registrationDate": "2019-07-05",
@@ -40,7 +40,7 @@
       "modelId": 7,
       "color": "#b68a11",
       "doors": 3,
-      "brandName": "Audi",
+      "brandName": "audi",
       "modelName": "A1",
       "id": 4
     },
@@ -51,8 +51,8 @@
       "modelId": 2,
       "color": "#097ed7",
       "doors": 5,
-      "brandName": "Seat",
-      "modelName": "Arona",
+      "brandName": "seat",
+      "modelName": "arona",
       "id": 5
     }
   ],
@@ -75,7 +75,7 @@
     },
     {
       "id": 5,
-      "name": "Škoda"
+      "name": "Skoda"
     },
     {
       "id": 6,

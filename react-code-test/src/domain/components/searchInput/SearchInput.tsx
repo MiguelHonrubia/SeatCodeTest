@@ -20,6 +20,7 @@ export const SearchInput: React.FC<{
       >
         <StyledSearchInput
           type="text"
+          placeholder="Buscar en el listado de vehiculos"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         ></StyledSearchInput>

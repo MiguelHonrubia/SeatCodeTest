@@ -18,17 +18,21 @@ export const mapCarTypeFrontToApi = (car: CarFrontType, dropDownValues) => {
   return {
     ...car,
     registrationDate: formatDateToApi(car.registrationDate),
-    brandName: dropDownValues["brands"].find((x) => x.id === car.brandId)?.name,
-    modelName: dropDownValues["models"].find((x) => x.id === car.modelId)?.name,
+    brandName: dropDownValues["brands"]
+      .find((x) => x.id === car.brandId)
+      ?.name.toLowerCase(),
+    modelName: dropDownValues["models"]
+      .find((x) => x.id === car.modelId)
+      ?.name.toLowerCase(),
   };
 };
 
-const formatDate = (date: string) => {
+export const formatDate = (date: string) => {
   const splittedDate = date.split("-");
   return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[0]}`;
 };
 
-const formatDateToApi = (date: string) => {
+export const formatDateToApi = (date: string) => {
   const splittedDate = date.split("/");
   return `${splittedDate[2]}-${splittedDate[1]}-${splittedDate[0]}`;
 };

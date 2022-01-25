@@ -9,7 +9,7 @@ export const buildRequestFilters = (filters: any): URLSearchParams => {
             urlParams.append(f, elem);
           });
         } else {
-          urlParams.append(f, filters[f]);
+          urlParams.append(`${f}_like`, filters[f]);
         }
       }
     }

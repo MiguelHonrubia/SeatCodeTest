@@ -13,7 +13,9 @@ export const MainTitleBox: React.FC<{
     <StyledSubtitleBox>
       <div style={{ display: "flex", alignItems: "center" }}>
         <div>
-          <Headline5 style={{ marginLeft: 24 }}>{title}</Headline5>
+          <Headline5 style={{ marginLeft: 24, color: "white" }}>
+            {title}
+          </Headline5>
         </div>
         <div style={{ marginLeft: 12, display: "flex", alignItems: "center" }}>
           {actionButtons &&
