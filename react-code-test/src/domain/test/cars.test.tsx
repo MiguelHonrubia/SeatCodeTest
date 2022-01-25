@@ -4,53 +4,66 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import {
   deleteCarProvider,
+  getCarsProvider,
   patchCarProvider,
   postCarProvider,
   putCarProvider,
 } from "../../infraestructure/data/providers/cars";
+import { DataTable } from "../components/datatable/Datatable";
+import { CAR_LIST_KEYS } from "../../infraestructure/core/models/car/car-list-keys";
 
-test("render cars list", () => {
-  render(<></>);
+test("render cars list", async () => {
+  const cars = await getCarsProvider();
+
+  render(<DataTable headers={CAR_LIST_KEYS} dataSource={cars}></DataTable>);
+
+  const registrationHeader = screen.getByText("Matrícula");
+  const brandHeader = screen.getByText("Marca");
+  const modelHeader = screen.getByText("Modelo");
+  const registrationDateHeader = screen.getByText("Fecha matriculación");
+  const colorHeader = screen.getByText("Color");
+  const doorsHeader = screen.getByText("Puertas");
 
   const carRegistration = screen.getByText("1234ABC");
-  const carBrand = screen.getByText("Seat");
+  const carBrand = screen.getAllByText("Seat");
   const carModel = screen.getByText("Ibiza");
   const carRegistrationDate = screen.getByText("03/11/2020");
-  const carDoors = screen.getByText("5 puertas");
 
   const carRegistration2 = screen.getByText("5678DEF");
-  const carBrand2 = screen.getByText("Seat");
   const carModel2 = screen.getByText("Arona");
   const carRegistrationDate2 = screen.getByText("05/07/2019");
-  const carDoors2 = screen.getByText("5 puertas");
 
   const carRegistration3 = screen.getByText("9012GHI");
   const carBrand3 = screen.getByText("Volkwagen");
   const carModel3 = screen.getByText("Golf");
   const carRegistrationDate3 = screen.getByText("21/03/2017");
-  const carDoors3 = screen.getByText("3 puertas");
+
+  expect(registrationHeader).toBeInTheDocument();
+  expect(brandHeader).toBeInTheDocument();
+  expect(modelHeader).toBeInTheDocument();
+  expect(registrationDateHeader).toBeInTheDocument();
+  expect(colorHeader).toBeInTheDocument();
+  expect(doorsHeader).toBeInTheDocument();
 
   expect(carRegistration).toBeInTheDocument();
-  expect(carBrand).toBeInTheDocument();
+  expect(carBrand).toHaveLength(2);
   expect(carModel).toBeInTheDocument();
   expect(carRegistrationDate).toBeInTheDocument();
-  expect(carDoors).toBeInTheDocument();
 
   expect(carRegistration2).toBeInTheDocument();
-  expect(carBrand2).toBeInTheDocument();
   expect(carModel2).toBeInTheDocument();
   expect(carRegistrationDate2).toBeInTheDocument();
-  expect(carDoors2).toBeInTheDocument();
 
   expect(carRegistration3).toBeInTheDocument();
   expect(carBrand3).toBeInTheDocument();
   expect(carModel3).toBeInTheDocument();
   expect(carRegistrationDate3).toBeInTheDocument();
-  expect(carDoors3).toBeInTheDocument();
 });
 
 test("render added car", async () => {
-  render(<></>);
+  const cars = await getCarsProvider();
+
+  render(<DataTable headers={CAR_LIST_KEYS} dataSource={cars}></DataTable>);
 
   const car = {
     id: 999,
@@ -78,7 +91,9 @@ test("render added car", async () => {
 });
 
 test("not render removed car", async () => {
-  render(<></>);
+  const cars = await getCarsProvider();
+
+  render(<DataTable headers={CAR_LIST_KEYS} dataSource={cars}></DataTable>);
 
   const car = {
     id: 999,
@@ -108,7 +123,9 @@ test("not render removed car", async () => {
 });
 
 test("render updated car", async () => {
-  render(<></>);
+  const cars = await getCarsProvider();
+
+  render(<DataTable headers={CAR_LIST_KEYS} dataSource={cars}></DataTable>);
 
   const car = {
     id: 999,
@@ -150,7 +167,9 @@ test("render updated car", async () => {
 });
 
 test("render updated car with patch", async () => {
-  render(<></>);
+  const cars = await getCarsProvider();
+
+  render(<DataTable headers={CAR_LIST_KEYS} dataSource={cars}></DataTable>);
 
   const car = {
     id: 999,

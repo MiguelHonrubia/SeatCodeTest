@@ -4,6 +4,10 @@ interface themeProps {
   maxHeight: string;
 }
 
+interface colorThemeProps {
+  color: string;
+}
+
 export const StyledLink = styled.span`
   color: white;
   font-weight: 500;
@@ -54,4 +58,14 @@ export const StyledTH = styled.th`
 
 export const StyledTD = styled.td`
   border: 1px solid #373d43;
+`;
+
+export const StyledColorBox = styled.div<colorThemeProps>`
+  width: 20px;
+  height: 20px;
+  background-color: ${({ color }) => color};
+`;
+
+export const StyledColorContainer = styled.div`
+  width: 100%;
 `;

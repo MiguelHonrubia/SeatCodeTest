@@ -7,6 +7,7 @@ import { AddIcon } from "../../assets/icons/ActionIcons";
 import { DataTable } from "../../components/datatable/Datatable";
 import { Dialog } from "../../components/dialog/Dialog";
 import { MainTitleBox } from "../../components/headerBox/MainTitleBox";
+import { SearchInput } from "../../components/searchInput/SearchInput";
 
 export const CarList: React.FC = () => {
   const [cars, setCars] = React.useState([]);
@@ -53,6 +54,9 @@ export const CarList: React.FC = () => {
         actionButtons={actionButtons}
       ></MainTitleBox>
       <div style={{ width: "100%" }}>
+        <div>
+          <SearchInput></SearchInput>
+        </div>
         <div style={{ margin: "12px 24px" }}>
           <DataTable
             headers={CAR_LIST_KEYS}

@@ -9,9 +9,10 @@ import { pathBuilder } from "../../core/utils/patch-builder";
 import { sortType } from "../../core/models/Sort";
 import { getBrandsProvider } from "./brands";
 import { getModelsProvider } from "./models";
+import { mapCarsTypeApiToFront } from "../../core/maps/cars";
 
-export const getCarsProvider = (filters?: any, sort?: sortType[]) =>
-  getCars(filters, sort);
+export const getCarsProvider = async (filters?: any, sort?: sortType[]) =>
+  mapCarsTypeApiToFront(await getCars(filters, sort));
 
 export const postCarProvider = (body: any) => postCar(body);
 export const putCarProvider = (body: any) => putCar(body);
