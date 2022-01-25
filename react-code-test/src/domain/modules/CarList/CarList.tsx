@@ -4,14 +4,16 @@ import { CAR_LIST_KEYS } from "../../../infraestructure/core/models/car/car-list
 import { getCarsProvider } from "../../../infraestructure/data/providers/cars";
 import { AddIcon } from "../../assets/icons/ActionIcons";
 import { DataTable } from "../../components/datatable/Datatable";
+import { Dialog } from "../../components/dialog/Dialog";
 import { MainTitleBox } from "../../components/headerBox/MainTitleBox";
 
 export const CarList: React.FC = () => {
   const [cars, setCars] = React.useState([]);
+  const [showDialog, setShowDialog] = React.useState(false);
 
   const load = async () => {
-    const hola = await getCarsProvider();
-    setCars(hola);
+    const response = await getCarsProvider();
+    setCars(response);
   };
 
   React.useEffect(() => {
@@ -21,13 +23,23 @@ export const CarList: React.FC = () => {
   const actionButtons: ActionButtonType[] = [
     {
       tooltipText: "Añadir vehiculo",
-      onClick: () => {},
+      onClick: () => {
+        setShowDialog(true);
+      },
       iconComponent: <AddIcon></AddIcon>,
     },
   ];
 
   return (
     <>
+      <Dialog
+        title={"Titulo prueba"}
+        showDialog={showDialog}
+        onClose={() => setShowDialog(false)}
+        size={"small"}
+      >
+        Hola, esto es un dialogo de prueba
+      </Dialog>
       <MainTitleBox
         title={"Listado de vehiculos"}
         actionButtons={actionButtons}
