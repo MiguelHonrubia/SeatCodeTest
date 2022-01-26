@@ -1,6 +1,8 @@
 import { CarFrontType } from "../models/car/car";
 
-export const mapCarsTypeApiToFront = (cars?: any[]): any[] => {
+export const mapCarsTypeApiToFront = (
+  cars?: CarFrontType[]
+): CarFrontType[] => {
   const mappedCars = [];
 
   cars &&

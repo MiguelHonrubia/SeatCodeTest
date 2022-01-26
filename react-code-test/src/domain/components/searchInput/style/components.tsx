@@ -12,7 +12,7 @@ export const StyledSearchInput = styled.input`
 
 export const StyledSearchSubmit = styled.input`
   width: 10%;
-  background-color: #4caf50;
+  background-color: #fb8761;
   color: white;
   padding: 14px 20px;
   margin: 8px 10px;
@@ -21,11 +21,11 @@ export const StyledSearchSubmit = styled.input`
   cursor: pointer;
 
   &:hover {
-    background-color: #45a049;
+    background-color: #fa794e;
   }
 `;
 
 export const StyledSearchForm = styled.form`
   display: flex;
-  margin: 0px 24px;
+  margin: 0px 38px;
 `;

@@ -4,12 +4,12 @@ import { DatatableField } from "../Datatable";
 
 export const CAR_LIST_KEYS: DatatableField[] = [
   {
-    key: "delete",
+    key: "",
     text: "",
     width: 20,
   },
   {
-    key: "edit",
+    key: "",
     text: "",
     width: 20,
   },

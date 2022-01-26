@@ -2,6 +2,10 @@ import * as React from "react";
 import { ActionButtonType } from "../../../../infraestructure/core/models/ActionButtons";
 import { useSnackbarValue } from "../../../../infraestructure/data/contexts/snackbar";
 import { DeleteIcon } from "../../../assets/icons/ActionIcons";
+import {
+  StyledCancelButton,
+  StyledSubmit,
+} from "../../../modules/car/form/style/components";
 import { IconButton } from "../../button/IconButton";
 import { Dialog } from "../../dialog/Dialog";
 import { Tooltip } from "../../tooltip/Tooltip";
@@ -13,13 +17,15 @@ export const DeleteTemplate: React.FC<any> = ({ functionCallback, id }) => {
   const actionButtons: ActionButtonType[] = [
     {
       onClick: () => setShowDialog(false),
-      iconComponent: <span>Cancelar</span>,
+      iconComponent: <StyledCancelButton>Cancelar</StyledCancelButton>,
     },
     {
       onClick: async () => {
         await functionCallback(id);
       },
-      iconComponent: <span>Aceptar</span>,
+      iconComponent: (
+        <StyledSubmit type="submit" value="Aceptar"></StyledSubmit>
+      ),
     },
   ];
   return (

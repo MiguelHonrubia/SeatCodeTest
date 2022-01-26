@@ -10,7 +10,7 @@ import {
 
 export const CarForm: React.FC<{
   handleSubmit: (values) => void;
-  data?: any;
+  data?: CarFrontType;
   onClose: () => void;
   dropDownValues: any;
 }> = ({ handleSubmit, onClose, data, dropDownValues }) => {
@@ -80,7 +80,7 @@ export const CarForm: React.FC<{
             </option>
             {dropDownValues &&
               dropDownValues["models"]
-                .filter((x) => x.brandId == car.brandId)
+                .filter((x) => x.brandId === car.brandId)
                 .map((model, index) => (
                   <option key={index} value={model.id}>
                     {model.name}

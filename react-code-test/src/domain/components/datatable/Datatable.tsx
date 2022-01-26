@@ -1,7 +1,11 @@
 import * as React from "react";
 import { DatatableField } from "../../../infraestructure/core/models/Datatable";
 import { sortType } from "../../../infraestructure/core/models/Sort";
-import { AscArrowIcon, DescArrowIcon } from "../../assets/icons/SortIcons";
+import {
+  AscArrowIcon,
+  DescArrowIcon,
+  NonSortedIcon,
+} from "../../assets/icons/SortIcons";
 import { IconButton } from "../button/IconButton";
 import { Tooltip } from "../tooltip/Tooltip";
 import {
@@ -48,16 +52,28 @@ export const DataTable: React.FC<{
                 width={width}
                 onClick={() => sortColumn(key)}
               >
-                <div style={{ display: "flex", cursor: "pointer" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    cursor: "pointer",
+                    alignItems: "center",
+                  }}
+                >
                   {text}
+                  {(!sort || sort.field !== key) && key !== "" && (
+                    <Tooltip title={"Ordenar"}>
+                      <NonSortedIcon color="gray" height={18} width={18} />
+                    </Tooltip>
+                  )}
+
                   {sort && sort.field === key && sort.value === "asc" && (
                     <Tooltip title={"Orden ascendente"}>
-                      <AscArrowIcon />
+                      <AscArrowIcon height={18} width={18} />
                     </Tooltip>
                   )}
                   {sort && sort.field === key && sort.value === "desc" && (
                     <Tooltip title={"Orden descendente"}>
-                      <DescArrowIcon />
+                      <DescArrowIcon height={18} width={18} />
                     </Tooltip>
                   )}
                 </div>

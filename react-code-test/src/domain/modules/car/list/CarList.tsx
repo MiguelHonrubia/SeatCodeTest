@@ -16,9 +16,12 @@ import { DataTable } from "../../../components/datatable/Datatable";
 import { DeleteTemplate } from "../../../components/datatable/templates/DeleteTemplate";
 import { IconTemplate } from "../../../components/datatable/templates/IconTemplate";
 import { Dialog } from "../../../components/dialog/Dialog";
+import { Headline4 } from "../../../components/font/Title";
 import { MainTitleBox } from "../../../components/headerBox/MainTitleBox";
 import { SearchInput } from "../../../components/searchInput/SearchInput";
 import { CarForm } from "../form/CarForm";
+
+const logo = require("../../../assets/images/seat-code-logo.png");
 
 export const CarList: React.FC = () => {
   const [cars, setCars] = React.useState([]);
@@ -174,7 +177,6 @@ export const CarList: React.FC = () => {
     setSort(sortAux);
 
     if (filters) {
-      console.log("aqui?");
       await handleSubmitSearch(filters);
     } else {
       await load(filters, sortAux);
@@ -190,7 +192,7 @@ export const CarList: React.FC = () => {
           setShowDialog(false);
           setEditCar(null);
         }}
-        size={"small"}
+        size={"medium"}
       >
         <CarForm
           data={editCar}
@@ -202,10 +204,24 @@ export const CarList: React.FC = () => {
           }}
         ></CarForm>
       </Dialog>
-      <MainTitleBox
-        title={"Listado de vehiculos"}
-        actionButtons={actionButtons}
-      ></MainTitleBox>
+      <div
+        style={{ display: "flex", justifyContent: "center", marginBottom: 40 }}
+      >
+        <div>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <img src={logo} alt="seat code logo" />
+          </div>
+
+          <Headline4>Frontend challenge by MiguelHonrubia</Headline4>
+        </div>
+      </div>
+      <div style={{ marginLeft: 24 }}>
+        <MainTitleBox
+          title={"Listado de vehiculos"}
+          actionButtons={actionButtons}
+        ></MainTitleBox>
+      </div>
+
       <div style={{ width: "100%" }}>
         <div>
           <SearchInput handleSubmit={handleSubmitSearch}></SearchInput>
@@ -214,7 +230,7 @@ export const CarList: React.FC = () => {
           <DataTable
             headers={CAR_LIST_KEYS}
             dataSource={cars}
-            maxHeight={300}
+            maxHeight={550}
             updateData={updateData}
           ></DataTable>
         </div>

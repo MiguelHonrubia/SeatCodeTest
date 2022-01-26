@@ -46,10 +46,7 @@ export const Dialog: React.FC<{
                 {actionButtons.map(
                   ({ tooltipText, onClick, iconComponent }, index) => {
                     return (
-                      <div
-                        key={index}
-                        style={{ marginRight: 10, marginLeft: 10 }}
-                      >
+                      <div key={index} style={{ marginRight: 5 }}>
                         <IconButton onClick={() => onClick()}>
                           {iconComponent}
                         </IconButton>

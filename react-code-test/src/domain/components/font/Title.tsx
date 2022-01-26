@@ -7,6 +7,7 @@ export const Headline1 = styled.h1`
   line-height: 112px;
   letter-spacing: -1.5px;
   margin: 5px;
+  color: white;
 `;
 
 export const Headline2 = styled.h2`
@@ -16,6 +17,7 @@ export const Headline2 = styled.h2`
   line-height: 72px;
   letter-spacing: -0.5px;
   margin: 5px;
+  color: white;
 `;
 
 export const Headline3 = styled.h3`
@@ -24,6 +26,7 @@ export const Headline3 = styled.h3`
   font-size: 48px;
   line-height: 56px;
   margin: 5px;
+  color: white;
 `;
 
 export const Headline4 = styled.h4`
@@ -32,6 +35,7 @@ export const Headline4 = styled.h4`
   font-size: 34px;
   line-height: 36px;
   margin: 5px;
+  color: white;
 `;
 
 export const Headline5 = styled.h5`
@@ -41,6 +45,7 @@ export const Headline5 = styled.h5`
   line-height: 24px;
   letter-spacing: 0.18px;
   margin: 5px;
+  color: white;
 `;
 
 export const Headline6 = styled.h6`
@@ -50,4 +55,5 @@ export const Headline6 = styled.h6`
   line-height: 24px;
   letter-spacing: 0.15px;
   margin: 5px;
+  color: white;
 `;

@@ -5,7 +5,7 @@ export const IconButton: React.FC<{
 }> = ({ onClick, children }) => {
   return (
     <div
-      style={{ display: "flex", alignItems: "center" }}
+      style={{ display: "flex", alignItems: "center", cursor: "pointer" }}
       onClick={() => onClick()}
     >
       {children}

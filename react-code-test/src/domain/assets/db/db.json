@@ -30,7 +30,7 @@
       "modelName": "golf",
       "modelId": 3,
       "color": "#172fe6",
-      "registrationDate": "2017-03-21",
+      "registrationDate": "2017-03-24",
       "doors": 3
     },
     {
@@ -54,6 +54,94 @@
       "brandName": "seat",
       "modelName": "arona",
       "id": 5
+    },
+    {
+      "registration": "5345EJY",
+      "registrationDate": "2020-02-01",
+      "brandId": 2,
+      "modelId": 6,
+      "color": "#850a0a",
+      "doors": 3,
+      "brandName": "volkswagen",
+      "modelName": "t-cross",
+      "id": 6
+    },
+    {
+      "registration": "3462AWQ",
+      "registrationDate": "2010-11-03",
+      "brandId": 4,
+      "modelId": 13,
+      "color": "#dff349",
+      "doors": 3,
+      "brandName": "porsche",
+      "modelName": "cayenne",
+      "id": 7
+    },
+    {
+      "registration": "3099EYT",
+      "registrationDate": "2011-07-05",
+      "brandId": 5,
+      "modelId": 9,
+      "doors": 5,
+      "color": "#0a0a0a",
+      "brandName": "skoda",
+      "modelName": "karoq",
+      "id": 8
+    },
+    {
+      "registration": "5667ILO",
+      "registrationDate": "2015-01-04",
+      "brandId": 6,
+      "modelId": 11,
+      "color": "#4825d4",
+      "doors": 5,
+      "brandName": "bentley",
+      "modelName": "continental gt mulliner",
+      "id": 9
+    },
+    {
+      "registration": "3345AWQ",
+      "registrationDate": "2017-04-03",
+      "brandId": 9,
+      "modelId": 8,
+      "doors": 3,
+      "color": "#e9820c",
+      "brandName": "audi",
+      "modelName": "e-tron gt",
+      "id": 10
+    },
+    {
+      "registration": "9976YYG",
+      "registrationDate": "2018-07-11",
+      "brandId": 6,
+      "modelId": 12,
+      "doors": 3,
+      "color": "#808080",
+      "brandName": "bentley",
+      "modelName": "bentayga hybrid",
+      "id": 11
+    },
+    {
+      "registration": "6553HHJ",
+      "registrationDate": "2011-07-03",
+      "brandId": 4,
+      "modelId": 13,
+      "color": "#a52c2c",
+      "doors": 3,
+      "brandName": "porsche",
+      "modelName": "cayenne",
+      "id": 12
+    },
+    {
+      "registration": "8989LLP",
+      "registrationDate": "2015-11-27",
+      "brandId": 6,
+      "modelId": 11,
+      "doors": 3,
+      "color": "#2f1bc5",
+      "brandName": "bentley",
+      "modelName": "continental gt mulliner",
+      "id": 13
     }
   ],
   "brands": [

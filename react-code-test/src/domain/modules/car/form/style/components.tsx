@@ -34,7 +34,7 @@ export const StyledCarSelectInput = styled.select`
 `;
 
 export const StyledSubmit = styled.input`
-  background-color: #4caf50;
+  background-color: #fb8761;
   color: white;
   padding: 15px 21px;
   width: 150px;
@@ -43,7 +43,7 @@ export const StyledSubmit = styled.input`
   cursor: pointer;
 
   &:hover {
-    background-color: #45a049;
+    background-color: #fa794e;
   }
 `;
 
@@ -53,11 +53,11 @@ export const StyledCancelButton = styled.button`
   padding: 14px 20px;
   width: 150px;
   border-radius: 4px;
-  border: 1px solid #45a049;
+  border: 1px solid #c2c2c2;
   cursor: pointer;
   margin-right: 24px;
 
   &:hover {
-    background-color: #45a049;
+    background-color: #636363;
   }
 `;
