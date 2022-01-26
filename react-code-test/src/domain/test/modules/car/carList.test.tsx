@@ -1,9 +1,9 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { DataTable } from "../components/datatable/Datatable";
-import { CAR_LIST_KEYS } from "../../infraestructure/core/models/car/car-list-keys";
-import { mapCarsTypeApiToFront } from "../../infraestructure/core/maps/cars";
+import { DataTable } from "../../../components/datatable/Datatable";
+import { CAR_LIST_KEYS } from "../../../../infraestructure/core/models/car/car-list-keys";
+import { mapCarsTypeApiToFront } from "../../../../infraestructure/core/maps/cars";
 
 const dataSource = [
   {
