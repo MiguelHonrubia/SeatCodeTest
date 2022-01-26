@@ -35,7 +35,7 @@ export const Dialog: React.FC<{
               <Headline6>{title}</Headline6>
               <Tooltip title="Cerrar">
                 <IconButton onClick={onClose}>
-                  <CloseIcon></CloseIcon>
+                  <CloseIcon />
                 </IconButton>
               </Tooltip>
             </StyledModalHeader>

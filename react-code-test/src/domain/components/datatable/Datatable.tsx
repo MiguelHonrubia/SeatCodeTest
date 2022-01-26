@@ -6,7 +6,6 @@ import {
   DescArrowIcon,
   NonSortedIcon,
 } from "../../assets/icons/SortIcons";
-import { IconButton } from "../button/IconButton";
 import { Tooltip } from "../tooltip/Tooltip";
 import {
   StyledCellText,

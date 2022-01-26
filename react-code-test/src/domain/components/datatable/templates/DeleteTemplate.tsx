@@ -1,6 +1,5 @@
 import * as React from "react";
 import { ActionButtonType } from "../../../../infraestructure/core/models/ActionButtons";
-import { useSnackbarValue } from "../../../../infraestructure/data/contexts/snackbar";
 import { DeleteIcon } from "../../../assets/icons/ActionIcons";
 import {
   StyledCancelButton,
@@ -12,7 +11,6 @@ import { Tooltip } from "../../tooltip/Tooltip";
 
 export const DeleteTemplate: React.FC<any> = ({ functionCallback, id }) => {
   const [showDialog, setShowDialog] = React.useState(false);
-  const { showSnackbar } = useSnackbarValue();
 
   const actionButtons: ActionButtonType[] = [
     {
@@ -50,7 +48,7 @@ export const DeleteTemplate: React.FC<any> = ({ functionCallback, id }) => {
       >
         <Tooltip title="Eliminar">
           <IconButton onClick={() => setShowDialog(true)}>
-            <DeleteIcon></DeleteIcon>
+            <DeleteIcon />
           </IconButton>
         </Tooltip>
       </div>

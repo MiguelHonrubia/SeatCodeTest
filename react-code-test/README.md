@@ -14,6 +14,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
+### `Run API`
+
+You just need to run the command `yarn run:serve` or `npm run run:server`
+
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.\
@@ -44,3 +48,32 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## FOLDER STRUCTURE
+
+- **/public** - Public files (images, favicon, etc)
+- **/domain/\*** - folder that contains all interface elements
+- - **/domain/assets/\*** - icons, images and css files
+- - **/domain/components/\*** - generic components that could be used in multiple modules or layouts
+- - - **/components/x/style** - folder that contains the styled components for the component
+- - - **/components/x/test** - test folder of the component
+- - **/domain/modules/\*** - module folder by entity
+- - - **/domain/modules/entity/test\*** - test folder of the module component
+- - - **/domain/modules/entity/style\*** - style folder of the module component
+- **/infraestructure/\*** - folder that contains everything related to data and data consumption
+- - **/infraestructure/core\*** - folder with the data models and all the utils needed as mappers , auxiliar functions, etc
+- - - **/infraestructure/core/utils\*** - auxiliar functions
+- - - **/infraestructure/core/mappers\*** - data mappers
+- - - **/infraestructure/core/models\*** - data models
+- - **/infraestructure/data\*** - folder that includes the data consumption
+- - - **/infraestructure/data/contexts\*** - contexts to manage the app state globaly
+- - - **/infraestructure/data/services\*** - services to consume the data from the api
+- - - **/infraestructure/data/providers\*** - middleware to apply any logic
+
+## Styling
+
+For styling I used [Styled-Components](https://styled-components.com/) because it offers the possibility of generating stylized generic components that could be reused, and also offers the possibility of passing parameters to make them dynamic
+
+## API
+
+For the api I used [JSON Server](https://github.com/typicode/json-server#getting-started).

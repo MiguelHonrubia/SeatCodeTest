@@ -27,7 +27,7 @@ export const Snackbar: React.FC<{}> = () => {
         <StyledSnackbarBox type={type}>
           <div style={{ marginRight: 20 }}>{message}</div>
           <IconButton onClick={closeSnackbar}>
-            <CloseIcon></CloseIcon>
+            <CloseIcon />
           </IconButton>
         </StyledSnackbarBox>
       )}

@@ -66,7 +66,7 @@ export const CarList: React.FC = () => {
       onClick: () => {
         setShowDialog(true);
       },
-      iconComponent: <AddIcon></AddIcon>,
+      iconComponent: <AddIcon />,
     },
   ];
 
@@ -166,7 +166,7 @@ export const CarList: React.FC = () => {
           setShowDialog(true);
         }}
       >
-        <EditIcon></EditIcon>
+        <EditIcon />
       </IconTemplate>
     );
   }

@@ -3,7 +3,7 @@ export const buildRequestFilters = (filters: any): URLSearchParams => {
 
   for (const f in filters) {
     if (Object.prototype.hasOwnProperty.call(filters, f)) {
-      if (filters[f] != undefined && filters[f] != "") {
+      if (filters[f] !== undefined && filters[f] !== "") {
         if (Array.isArray(filters[f])) {
           filters[f].forEach((elem) => {
             urlParams.append(f, elem);

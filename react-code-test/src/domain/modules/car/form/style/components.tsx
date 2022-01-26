@@ -33,7 +33,7 @@ export const StyledCarSelectInput = styled.select`
   color: #757575;
 `;
 
-export const StyledSubmit = styled.input`
+export const StyledSubmit = styled.button`
   background-color: #fb8761;
   color: white;
   padding: 15px 21px;

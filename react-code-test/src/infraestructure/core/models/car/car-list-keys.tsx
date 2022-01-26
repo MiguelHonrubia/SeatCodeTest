@@ -1,5 +1,4 @@
 import { ColorTemplate } from "../../../../domain/components/datatable/templates/ColorTemplate";
-import { DeleteTemplate } from "../../../../domain/components/datatable/templates/DeleteTemplate";
 import { DatatableField } from "../Datatable";
 
 export const CAR_LIST_KEYS: DatatableField[] = [
