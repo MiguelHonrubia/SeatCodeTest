@@ -1,42 +1,69 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-
 import "@testing-library/jest-dom";
-import {
-  deleteCarProvider,
-  fetchCarDropDownValues,
-  getCarsProvider,
-  patchCarProvider,
-  postCarProvider,
-  putCarProvider,
-} from "../../infraestructure/data/providers/cars";
 import { DataTable } from "../components/datatable/Datatable";
 import { CAR_LIST_KEYS } from "../../infraestructure/core/models/car/car-list-keys";
+import { mapCarsTypeApiToFront } from "../../infraestructure/core/maps/cars";
+
+const dataSource = [
+  {
+    id: 1,
+    registration: "1234ABC",
+    brandName: "seat",
+    brandId: 1,
+    modelName: "ibiza",
+    modelId: 1,
+    color: "#97117a",
+    registrationDate: "2020-11-03",
+    doors: 5,
+  },
+  {
+    id: 2,
+    registration: "5678def",
+    brandName: "seat",
+    brandId: 1,
+    modelName: "arona",
+    modelId: 1,
+    color: "#52dd36",
+    registrationDate: "2019-07-05",
+    doors: 5,
+  },
+  {
+    id: 3,
+    registration: "9012ghi",
+    brandName: "volkswagen",
+    brandId: 2,
+    modelName: "golf",
+    modelId: 3,
+    color: "#172fe6",
+    registrationDate: "2017-03-21",
+    doors: 3,
+  },
+];
 
 test("render cars list", async () => {
-  const cars = await getCarsProvider();
-
-  render(<DataTable headers={CAR_LIST_KEYS} dataSource={cars}></DataTable>);
+  const data = mapCarsTypeApiToFront(dataSource);
+  render(<DataTable headers={CAR_LIST_KEYS} dataSource={data}></DataTable>);
 
   const registrationHeader = screen.getByText("Matrícula");
   const brandHeader = screen.getByText("Marca");
   const modelHeader = screen.getByText("Modelo");
   const registrationDateHeader = screen.getByText("Fecha matriculación");
   const colorHeader = screen.getByText("Color");
-  const doorsHeader = screen.getByText("Puertas");
+  const doorsHeader = screen.getByText("Nº Puertas");
 
   const carRegistration = screen.getByText("1234ABC");
-  const carBrand = screen.getAllByText("Seat");
-  const carModel = screen.getByText("Ibiza");
+  const carBrand = screen.getAllByText("SEAT");
+  const carModel = screen.getByText("IBIZA");
   const carRegistrationDate = screen.getByText("03/11/2020");
 
   const carRegistration2 = screen.getByText("5678DEF");
-  const carModel2 = screen.getByText("Arona");
+  const carModel2 = screen.getByText("ARONA");
   const carRegistrationDate2 = screen.getByText("05/07/2019");
 
   const carRegistration3 = screen.getByText("9012GHI");
-  const carBrand3 = screen.getByText("Volkwagen");
-  const carModel3 = screen.getByText("Golf");
+  const carBrand3 = screen.getByText("VOLKSWAGEN");
+  const carModel3 = screen.getByText("GOLF");
   const carRegistrationDate3 = screen.getByText("21/03/2017");
 
   expect(registrationHeader).toBeInTheDocument();
@@ -62,145 +89,91 @@ test("render cars list", async () => {
 });
 
 test("render added car", async () => {
-  const cars = await getCarsProvider();
-  const dropDownValues = await fetchCarDropDownValues();
+  const { rerender } = render(
+    <DataTable headers={CAR_LIST_KEYS} dataSource={dataSource}></DataTable>
+  );
 
-  render(<DataTable headers={CAR_LIST_KEYS} dataSource={cars}></DataTable>);
+  expect(screen.queryByText("9999XYZ")).not.toBeInTheDocument();
 
   const car = {
     id: 999,
     registration: "9999XYZ",
-    brandName: "Audi",
-    brandId: 3,
-    modelName: "e-tron GT",
+    brandId: 1,
+    brandName: "seat",
     modelId: 4,
+    modelName: "Ateca",
     color: "#FFFFFF",
-    registrationDate: "2022-07-06",
+    registrationDate: "06/07/2022",
     doors: 3,
   };
 
-  await postCarProvider(car, dropDownValues);
+  dataSource.push(car);
 
-  const carRegistration = screen.getByText("9999XYZ");
-  const carBrand = screen.getByText("Audi");
-  const carModel = screen.getByText("e-tron GT");
-  const carRegistrationDate = screen.getByText("06/07/2022");
+  rerender(
+    <DataTable headers={CAR_LIST_KEYS} dataSource={dataSource}></DataTable>
+  );
 
-  expect(carRegistration).toBeInTheDocument();
-  expect(carBrand).toBeInTheDocument();
-  expect(carModel).toBeInTheDocument();
-  expect(carRegistrationDate).toBeInTheDocument();
+  const carRegistration = screen.getAllByText("9999XYZ");
+  const carBrand = screen.getAllByText("SEAT");
+  const carModel = screen.getAllByText("ATECA");
+  const carRegistrationDate = screen.getAllByText("06/07/2022");
+
+  expect(carRegistration).not.toHaveLength(0);
+  expect(carBrand).not.toHaveLength(0);
+  expect(carModel).not.toHaveLength(0);
+  expect(carRegistrationDate).not.toHaveLength(0);
+
+  dataSource.splice(dataSource.indexOf(car), 1);
 });
 
 test("not render removed car", async () => {
-  const cars = await getCarsProvider();
-  const dropDownValues = await fetchCarDropDownValues();
-
-  render(<DataTable headers={CAR_LIST_KEYS} dataSource={cars}></DataTable>);
+  const { rerender } = render(
+    <DataTable headers={CAR_LIST_KEYS} dataSource={dataSource}></DataTable>
+  );
 
   const car = {
-    id: 999,
-    registration: "9999XYZ",
-    brandName: "Audi",
-    brandId: 3,
-    modelName: "e-tron GT",
-    modelId: 4,
-    color: "#FFFFFF",
-    registrationDate: "2022-07-06",
+    id: 3,
+    registration: "9012ghi",
+    brandName: "volkswagen",
+    brandId: 2,
+    modelName: "golf",
+    modelId: 3,
+    color: "#172fe6",
+    registrationDate: "2017-03-21",
     doors: 3,
   };
 
-  await postCarProvider(car, dropDownValues);
+  dataSource.splice(dataSource.indexOf(car), 1);
 
-  expect(screen.getByText("9999XYZ")).toBeInTheDocument();
-  expect(screen.getByText("Audi")).toBeInTheDocument();
-  expect(screen.getByText("e-tron GT")).toBeInTheDocument();
-  expect(screen.getByText("06/07/2022")).toBeInTheDocument();
+  expect(screen.getByText("9012GHI")).toBeInTheDocument();
 
-  await deleteCarProvider(1);
+  rerender(
+    <DataTable headers={CAR_LIST_KEYS} dataSource={dataSource}></DataTable>
+  );
 
-  expect(screen.queryByText("9999XYZ")).not.toBeInTheDocument();
-  expect(screen.queryByText("Audi")).not.toBeInTheDocument();
-  expect(screen.queryByText("e-tron GT")).not.toBeInTheDocument();
-  expect(screen.queryByText("06/07/2022")).not.toBeInTheDocument();
+  expect(screen.queryByText("9012GHI")).not.toBeInTheDocument();
+
+  dataSource.push(car);
 });
 
 test("render updated car", async () => {
-  const cars = await getCarsProvider();
-  const dropDownValues = await fetchCarDropDownValues();
+  const { rerender } = render(
+    <DataTable headers={CAR_LIST_KEYS} dataSource={dataSource}></DataTable>
+  );
 
-  render(<DataTable headers={CAR_LIST_KEYS} dataSource={cars}></DataTable>);
+  expect(screen.getByText("9012GHI")).toBeInTheDocument();
+  expect(screen.getByText("GOLF")).toBeInTheDocument();
 
-  const car = {
-    id: 999,
-    registration: "9999XYZ",
-    brandName: "Audi",
-    brandId: 3,
-    modelName: "e-tron GT",
-    modelId: 4,
-    color: "#FFFFFF",
-    registrationDate: "2022-07-06",
-    doors: 3,
-  };
+  dataSource[2].registration = "7777xyz";
+  dataSource[2].modelName = "ModelTest";
 
-  await postCarProvider(car, dropDownValues);
+  rerender(
+    <DataTable headers={CAR_LIST_KEYS} dataSource={dataSource}></DataTable>
+  );
 
-  expect(screen.getByText("9999XYZ")).toBeInTheDocument();
-  expect(screen.getByText("Audi")).toBeInTheDocument();
-  expect(screen.getByText("e-tron GT")).toBeInTheDocument();
-  expect(screen.getByText("06/07/2022")).toBeInTheDocument();
+  expect(screen.getByText("7777XYZ")).toBeInTheDocument();
+  expect(screen.getByText("MODELTEST")).toBeInTheDocument();
 
-  const car2 = {
-    id: 999,
-    registration: "8888XYZ",
-    brandName: "Audi2",
-    brandId: 3,
-    modelName: "e-tron GT22",
-    modelId: 4,
-    color: "#FFFFFF",
-    registrationDate: "2018-02-03",
-    doors: 3,
-  };
-
-  await putCarProvider(car2, dropDownValues);
-
-  expect(screen.getByText("8888XYZ")).toBeInTheDocument();
-  expect(screen.getByText("Audi2")).toBeInTheDocument();
-  expect(screen.getByText("e-tron GT22")).toBeInTheDocument();
-  expect(screen.getByText("03/02/2018")).toBeInTheDocument();
-});
-
-test("render updated car with patch", async () => {
-  const cars = await getCarsProvider();
-  const dropDownValues = await fetchCarDropDownValues();
-
-  render(<DataTable headers={CAR_LIST_KEYS} dataSource={cars}></DataTable>);
-
-  const car = {
-    id: 999,
-    registration: "9999XYZ",
-    brandName: "Audi",
-    brandId: 3,
-    modelName: "e-tron GT",
-    modelId: 4,
-    color: "#FFFFFF",
-    registrationDate: "2022-07-06",
-    doors: 3,
-  };
-
-  await postCarProvider(car, dropDownValues);
-
-  expect(screen.getByText("9999XYZ")).toBeInTheDocument();
-  expect(screen.getByText("Audi")).toBeInTheDocument();
-  expect(screen.getByText("e-tron GT")).toBeInTheDocument();
-  expect(screen.getByText("06/07/2022")).toBeInTheDocument();
-
-  const car2 = {
-    id: 999,
-    registration: "8888XYZ",
-  };
-
-  await patchCarProvider(car2);
-
-  expect(screen.getByText("8888XYZ")).toBeInTheDocument();
+  dataSource[2].registration = "9012ghi";
+  dataSource[2].modelName = "golf";
 });

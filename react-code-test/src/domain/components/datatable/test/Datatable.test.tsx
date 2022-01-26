@@ -18,9 +18,9 @@ const headers = [
   },
 ];
 const dataSource = [
-  { name: "name-test-1", artist: "artist-test-1", duration_ms: 999 },
-  { name: "name-test-2", artist: "artist-test-2", duration_ms: 888 },
-  { name: "name-test-3", artist: "artist-test-3", duration_ms: 777 },
+  { name: "NAME-TEST-1", artist: "ARTIST-TEST-1", duration_ms: 999 },
+  { name: "NAME-TEST-2", artist: "ARTIST-TEST-2", duration_ms: 888 },
+  { name: "NAME-TEST-3", artist: "ARTIST-TEST-3", duration_ms: 777 },
 ];
 
 test("Datatable test", () => {

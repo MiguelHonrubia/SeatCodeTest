@@ -31,7 +31,7 @@ export const DataTable: React.FC<{
   };
 
   React.useEffect(() => {
-    updateData(sort);
+    if (updateData) updateData(sort);
   }, [sort]);
 
   return (
