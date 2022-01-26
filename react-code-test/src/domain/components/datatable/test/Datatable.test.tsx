@@ -5,22 +5,22 @@ import { DataTable } from "../Datatable";
 
 const headers = [
   {
-    key: "name",
-    text: "name",
+    key: "registration",
+    text: "Matricula",
   },
   {
-    key: "artist",
-    text: "artists",
+    key: "brandName",
+    text: "Marca",
   },
   {
-    key: "duration_ms",
-    text: "duration",
+    key: "modelName",
+    text: "Modelo",
   },
 ];
 const dataSource = [
-  { name: "NAME-TEST-1", artist: "ARTIST-TEST-1", duration_ms: 999 },
-  { name: "NAME-TEST-2", artist: "ARTIST-TEST-2", duration_ms: 888 },
-  { name: "NAME-TEST-3", artist: "ARTIST-TEST-3", duration_ms: 777 },
+  { registration: "1234ABC", brandName: "SEAT", modelName: "ATECA" },
+  { registration: "5678DEF", brandName: "VOLKSWAGEN", modelName: "GOLF" },
+  { registration: "9012GHI", brandName: "SKODA", modelName: "KAMIQ" },
 ];
 
 test("Datatable test", () => {

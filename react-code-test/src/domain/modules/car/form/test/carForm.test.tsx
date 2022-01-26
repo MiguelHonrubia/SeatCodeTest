@@ -1,8 +1,8 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { CarForm } from "../../../modules/car/form/CarForm";
-import { fetchCarDropDownValues } from "../../../../infraestructure/data/providers/cars";
+import { CarForm } from "../CarForm";
+import { fetchCarDropDownValues } from "../../../../../infraestructure/data/providers/cars";
 
 const data = {
   id: 999,
