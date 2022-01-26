@@ -31,6 +31,10 @@ export const StyledModalContent = styled.div<themeProps>`
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
   animation-duration: 0.4s;
+
+  @media only screen and (max-width: 500px) {
+    width: 95%;
+  }
 `;
 
 export const StyledModalHeader = styled.div`

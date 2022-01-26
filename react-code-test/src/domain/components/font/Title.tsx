@@ -36,6 +36,12 @@ export const Headline4 = styled.h4`
   line-height: 36px;
   margin: 5px;
   color: white;
+
+  @media only screen and (max-width: 500px) {
+    width: 300px;
+    font-size: 24px;
+    text-align: center;
+  }
 `;
 
 export const Headline5 = styled.h5`

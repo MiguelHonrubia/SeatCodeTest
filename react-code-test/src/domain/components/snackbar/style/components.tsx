@@ -21,6 +21,11 @@ export const StyledSnackbarBox = styled.div<themeProps>`
   bottom: 30px;
   color: ${({ type }) => (type === "warning" ? "black" : "white")};
 
+  @media only screen and (max-width: 800px) {
+    margin-left: -150px;
+    bottom: 10px;
+  }
+
   background-color: ${({ type }) =>
     type === "error"
       ? "#ef5350"

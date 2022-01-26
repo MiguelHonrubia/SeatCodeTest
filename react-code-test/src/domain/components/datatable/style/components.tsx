@@ -43,6 +43,11 @@ export const StyledTableContainer = styled.div<themeProps>`
     border-radius: 4px;
     background: #fb8761;
   }
+
+  @media only screen and (max-width: 800px) {
+    overflow-x: auto;
+    margin-left: ;
+  }
 `;
 
 export const StyledDataTable = styled.table`

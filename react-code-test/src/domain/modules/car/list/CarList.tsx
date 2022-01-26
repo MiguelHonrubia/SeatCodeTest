@@ -18,6 +18,7 @@ import { IconTemplate } from "../../../components/datatable/templates/IconTempla
 import { Dialog } from "../../../components/dialog/Dialog";
 import { Headline4 } from "../../../components/font/Title";
 import { MainTitleBox } from "../../../components/headerBox/MainTitleBox";
+import { StyledImageLogo } from "../../../components/imageLogo/style/components";
 import { SearchInput } from "../../../components/searchInput/SearchInput";
 import { CarForm } from "../form/CarForm";
 
@@ -209,10 +210,11 @@ export const CarList: React.FC = () => {
       >
         <div>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <img src={logo} alt="seat code logo" />
+            <StyledImageLogo src={logo} alt="seat code logo" />
           </div>
-
-          <Headline4>Frontend challenge by MiguelHonrubia</Headline4>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <Headline4>Frontend challenge by MiguelHonrubia</Headline4>
+          </div>
         </div>
       </div>
       <div style={{ marginLeft: 24 }}>
